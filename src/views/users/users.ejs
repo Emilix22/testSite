@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Usuarios', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <h1>Listado de usuarios</h1>
+    <br>
+    <section class="users">
+    <% users.forEach(user => { %>
+        <article>
+            
+            <img src="/img/users/<%=user.image%>" alt="foto-perfil"> <br>
+            <%= user.name %> <%= user.surname %> <br>
+            <%= user.email %><br>
+            <a href="/users/level/<%= user.id %> ">Modificar Permisos</a> <br>
+            <a href="/users/delete/<%= user.id %>">Dar de Baja Este Usuario</a>
+            
+        </article>
+    <% }) %>
+    </section>
+</body>
+</html>

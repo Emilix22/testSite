@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Carrito de Compras', style: '/css/styles.css'}) %>
+<body>
+     
+    <%- include('../partials/header') %>
+    
+    <h1>Carrito de compras</h1>
+    
+    <table>
+        <thead>
+            <th>
+                <strong>Producto</strong>
+            </th>
+            <th>
+                <strong>Precio</strong>
+            </th>
+            <th>
+                <strong>Cantidad</strong>
+            </th>
+            <th>
+                <strong>Subtotal</strong>
+            </th>
+        </thead>
+        <tbody class="cartRows">
+            
+        </tbody>
+    </table>
+    <div>
+        <h2><span class="total-cart">Total $</span></h2>
+    </div>
+
+    <button class="button" id="vaciarCart">Vaciar carrito</button>
+    <button class="button" id="comprar">Comprar</button>
+    <script src="/js/scriptCart.js"></script>
+ <script src="https://kit.fontawesome.com/6cd48854d2.js" crossorigin="anonymous"></script>
+    
+</body>
+</html>

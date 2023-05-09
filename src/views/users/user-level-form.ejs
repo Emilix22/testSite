@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Editar Perfil', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <h1>Modificar permisos del usuario: <%= user.email %> (<%= user.name %>)</h1>
+
+    <form action="/users/level/<%=user.id%>?_method=PUT" method="POST">
+        <div class="form-camp">
+            <label for="level" class="form-label">Permiso de:</label>
+            <select name="level">
+                <% if (user.level.type == 'admin') { %>
+                    <option value="1" selected>Administrador</option>
+                    <option value="2">Usuario común</option>
+                <% } else {%>
+                    <option value="1">Administrador</option>
+                    <option value="2" selected>Usuario común</option>  
+                <% } %>               
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="button">Guardar Cambios</button>
+        </div>
+    </form>
+</body>
+</html>

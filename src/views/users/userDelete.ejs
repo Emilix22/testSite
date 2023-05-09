@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Eliminar usuario', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+
+    <h1>Seguro de ELIMINAR el usuario: <%= user.name %> (<%= user.email %>) </h1>
+    <form action="/users/delete/<%=user.id%>?_method=DELETE" method="POST">
+        <button type="submit">ELIMINAR</button>
+    
+    
+</body>
+</html>

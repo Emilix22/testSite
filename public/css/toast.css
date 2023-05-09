@@ -1,0 +1,50 @@
+.aviso {
+    position: fixed;
+    top: 0px;
+    right: 60px;
+    /* margin: auto; */
+    max-width: 400px;
+    padding: 6px;
+    background-color: #56a9c1;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all 0.5s;
+}
+
+/* .aviso-visible {
+top: 100px;
+opacity: 1;
+visibility: visible;
+} */
+
+.aviso-success {
+    top: 100px;
+    opacity: 1;
+    visibility: visible;
+    background-color: #71b371;
+    border: solid 1px #71b400;
+}
+
+.aviso-error {
+    top: 100px;
+    opacity: 1;
+    visibility: visible;
+    background-color: #ca5e58;
+    border: solid 1px #ca5e80;
+}
+
+.aviso-info {
+    top: 100px;
+    opacity: 1;
+    visibility: visible;
+    background-color: #56a9c1;
+    border: solid 1px white;
+}

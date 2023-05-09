@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: 'Editar Producto', style: '/css/styles.css'}) %>
+
+    <body>
+        <%- include('../partials/header') %>
+
+            <h1>Formulario Editar Productos</h1>
+
+            <form action="/products/edit/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-camp">
+                    <label for="name" class="form-label">Nombre del producto:</label>
+                    <input type="text" name="name" value="<%= product.name %> " class="form-input">
+                </div>
+                <div class="form-camp">
+                    <label for="price" class="form-label">Precio del producto:</label>
+                    <input type="text" name="price" value="<%= product.price %> " class="form-input">
+                </div>
+                <div class="form-camp">
+                    <label for="discount" class="form-label">Descuento:</label>
+                    <input type="text" name="discount" value="<%= product.discount %> " class="form-input">
+                </div>
+                <div class="form-camp">
+                    <label for="description" class="form-label">Descripción del producto:</label>
+                    <textarea name="description" class="form-input"><%= product.description %> </textarea>
+                </div>
+                <div class="form-camp">
+                    <label for="image" class="form-label">Foto del producto:</label>
+                    <input type="file" name="image" class="form-input">
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="button">Guardar producto</button>
+                    <button type="reset" class="button">Limpiar formulario</button>
+                </div>
+            </form>
+    </body>
+
+</html>

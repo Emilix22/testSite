@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Editar Perfil', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <h1>Editar Perfil: </h1>
+
+    <form action="/users/edit/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form-camp">
+            <label for="name" class="form-label">Nombre:</label>
+            <input type="text" name="name" value="<%= user.name %> " class="form-input">
+        </div>
+        <div class="form-camp">
+            <label for="surname" class="form-label">Apellido:</label>
+            <input type="text" name="surname" value="<%= user.surname %> " class="form-input">
+        </div>
+        <div class="form-camp">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" name="email" value="<%= user.email %> " class="form-input">
+        </div>
+        <div class="form-camp">
+            <label for="image" class="form-label">Foto:</label>
+            <input type="file" name="image" class="form-input">
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="button">Guardar Cambios</button>
+        </div>
+    </form>
+</body>
+</html>

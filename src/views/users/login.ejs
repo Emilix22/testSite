@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Login', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <h1>Login</h1>
+
+    <form action="/users/login" method="POST">
+        <div class="form-camp">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-input" value="<%= locals.oldData ? oldData.email : null %>">
+        </div>
+        <% if (locals.errors && errors.email) { %>
+            <div class="text-danger">
+                <%= errors.email.msg %> 
+            </div>
+        <% } %>
+        <div class="form-camp">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-input">
+        </div>
+        <div class="form-camp">
+            <label for="recordame" class="form-label">Remember User</label>
+            <input type="checkbox" name="rememberUser" class="form-input-remember">
+        </div>
+        <button type="submit" class="button">Login</button>
+    </form>
+</body>
+</html>

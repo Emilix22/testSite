@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Listado de Productos', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+
+    <h1>Listado de Productos</h1>
+    <main>
+        <section class="products">
+            <% products.forEach(product => { %>
+                <article class="product">
+                    <a href="/products/detail/<%= product.id %> ">
+                    <img src="/img/products/<%= product.image %> " alt="foto-producto">
+                    <div class="description">
+                        <span>$<%= product.price %> </span>
+                        <% if (product.discount > 0) { %>
+                        <span><%= product.discount %> % off</span>
+                        <% } %>
+                        
+                    </div>
+                        <span class="name"><%= product.name.toUpperCase() %> </span>
+                    </a>
+                    <form action="/products/restore/<%= product.id %>" method="POST">
+                    <div class="buttons">
+                        <button >Recuperar Producto</button>
+                    </div>
+                </form>     
+                </article>
+            <% }) %>
+        </section>
+    </main> 
+       
+    <%- include('../partials/footer') %>
+</body>
+</html>

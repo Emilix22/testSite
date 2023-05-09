@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Detalle de producto', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+
+    <h1>Detalle del Producto: <%= product.name %> </h1><br>
+    <p class="welcome-text"><%= product.description %></p><br>
+
+    <section class="productDetail">
+ 
+        <article class="buttonsDetail">
+            <button>COMPRAR</button>
+            <button>AGREGAR AL CARRITO</button>
+            <% if (locals.isLogged && locals.isLogged.level.type == 'admin') { %>
+                <a href="/products/edit/<%= product.id %> ">EDITAR PRODUCTO</a>
+                <a href="/products/delete/<%= product.id %>">ELIMINAR</a>
+            <% } %>
+        </article>
+
+        <article class="fotoDetail">
+            <img src="/img/products/<%= product.image %>" alt="foto">
+        </article>
+
+    </section>
+    <%- include('../partials/footer') %>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Personajes Rick y Morthy', style: '/css/styles.css'}) %>
+    <script src="/js/scriptrick.js"></script>
+<body>
+    <%- include('../partials/header') %>
+
+    <h1>Personajes de Rick y Morthy</h1>
+    <main>
+        <section class="personajes">
+            <% personajes.results.forEach(personaje => { %>
+                <article class="personaje">
+                    <a href="#">
+                    <img src="<%= personaje.image %> " alt="foto-producto">
+                    <span class="name">Nombre: <%= personaje.name.toUpperCase() %> </span>
+                    <div class="description">
+                        <span>Status: <%= personaje.status %> </span>
+                        <span>Specie: <%= personaje.species %></span>
+                        <span>Type: <%= personaje.type %></span>
+                        <span>Gender: <%= personaje.gender %></span>
+                        <span>Origin: <%= personaje.origin.name %></span>
+                        <span>Location: <%= personaje.location.name %></span>
+                    </div>
+                    </a>
+                </article>
+                <% }) %>
+            </section>  
+            <div class="buttons">
+                <button type="button" class="prev">Anterior</button>
+                <button type="button" class="next">Siguiente</button>
+            </div>
+    </main> 
+       
+    <%- include('../partials/footer') %>
+</body>
+</html>

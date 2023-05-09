@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Registrarse', style: '/css/styles.css'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <h1>Formulario de Registro</h1>
+
+    <form action="/users/register" method="POST" enctype="multipart/form-data">
+ 
+        <div class="form-camp">
+            <label for="name" class="form-label ">Nombre:</label>
+            <input type="text" name="name" placeholder="Ej: Juan" class="form-input <%= locals.errors && errors.name ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.name : null %>">
+        </div>
+        <% if (locals.errors && errors.name) { %>
+            <div class="text-danger">
+                <%= errors.name.msg %> 
+            </div>
+        <% } %>    
+
+        <div class="form-camp">
+            <label for="surname" class="form-label">Apellido:</label>
+            <input type="text" name="surname" placeholder="Ej: Perez" class="form-input">    
+        </div>
+
+        <div class="form-camp">
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" name="email" placeholder="Ej: juan@hotmail.com" class="form-input <%= locals.errors && errors.email ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.email : null %>">
+        </div>
+        <% if (locals.errors && errors.email) { %>
+            <div class="text-danger">
+                <%= errors.email.msg %> 
+            </div>
+        <% } %>
+
+        <div class="form-camp">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" name="password" placeholder="Mínimo 8 caracteres" class="form-input <%= locals.errors && errors.password ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.password : null %>">
+        </div>
+        <% if (locals.errors && errors.password) { %>
+            <div class="text-danger">
+                <%= errors.password.msg %> 
+            </div>
+        <% } %>
+
+        <div class="form-camp" id="image">
+            <label for="image" class="form-label">Foto de Perfil:</label>
+            <input type="file" name="image" class="form-input">
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="button">Guardar</button>
+            <button type="reset" class="button">Limpiar formulario</button>
+        </div>
+    </form>
+</body>
+</html>
